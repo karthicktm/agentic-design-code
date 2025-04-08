@@ -6,12 +6,6 @@ Welcome to the Figma-to-Code system! This application allows you to convert your
 
 ## Getting Started
 
-### Accessing the Application
-
-The Figma-to-Code application is available:
-- Locally at: http://localhost:3000
-- Public URL: http://3000-i8il6n5tfjyjlx23kbs85-11e8e720.manus.computer (temporary development URL)
-
 ### System Requirements
 
 To use the Figma-to-Code system, you need:
