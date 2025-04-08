@@ -1,0 +1,198 @@
+# Figma-to-Code System Documentation
+
+## Overview
+
+The Figma-to-Code system is a comprehensive solution that automates the conversion of Figma designs into production-ready frontend code. The system follows a multi-agent architecture where specialized agents handle different aspects of the conversion process, from parsing Figma files to generating and validating code.
+
+## System Architecture
+
+The system is built using a multi-agent architecture with five specialized agents:
+
+1. **Figma Parser Agent**: Parses Figma JSON files, extracts design information, and creates a flattened node structure.
+2. **Design Analyzer Agent**: Analyzes the design to detect patterns, validate styles, and extract metadata.
+3. **EDS Mapper Agent**: Maps Figma components to Enterprise Design System (EDS) components with confidence scoring.
+4. **LLM Orchestrator Agent**: Generates code based on component mappings for various frontend frameworks.
+5. **Code Validator Agent**: Validates the generated code for syntax, style, and responsiveness.
+
+These agents work together in a workflow that guides users through the process of converting Figma designs to code.
+
+## Technology Stack
+
+- **Frontend**: Next.js with React and TypeScript
+- **UI Components**: Custom components with responsive design
+- **State Management**: React Context API and hooks
+- **Testing**: Jest for unit and integration testing
+
+## Installation
+
+### Prerequisites
+
+- Node.js 18.0.0 or higher
+- npm or pnpm package manager
+
+### Setup Instructions
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-organization/figma-to-code.git
+cd figma-to-code
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+pnpm install
+```
+
+3. Run the development server:
+```bash
+npm run dev
+# or
+pnpm dev
+```
+
+4. Open your browser and navigate to http://localhost:3000
+
+## Usage Guide
+
+### 1. Figma Import
+
+The first step in the workflow is to import a Figma design. You can do this in two ways:
+
+- **Upload a Figma JSON file**: Export your Figma design as JSON and upload it directly.
+- **Use Figma API**: Provide your Figma API token and file ID to fetch the design directly from Figma.
+
+### 2. Design Analysis
+
+After importing the Figma design, the system analyzes it to:
+
+- Detect component patterns (buttons, inputs, cards, etc.)
+- Validate design styles for consistency
+- Extract metadata about the design
+
+### 3. EDS Library Import
+
+Import your Enterprise Design System (EDS) component library by:
+
+- Uploading a JSON file containing your component definitions
+- The system will parse the library and prepare it for component mapping
+
+### 4. Component Mapping
+
+The system automatically maps Figma components to EDS components based on:
+
+- Component patterns detected in the design analysis
+- Structural similarities between components
+- Style and property matching
+
+You can also manually adjust these mappings or create new ones.
+
+### 5. Code Generation
+
+Generate code for your mapped components by:
+
+- Selecting the target framework (React, Vue, Angular, or HTML/CSS)
+- Configuring framework-specific options (TypeScript, styling approach)
+- Choosing whether to generate layout code in addition to component code
+
+### 6. Code Validation
+
+The generated code is automatically validated for:
+
+- Syntax correctness
+- Adherence to style guidelines
+- Responsiveness across different screen sizes
+
+You can review validation issues and make adjustments as needed.
+
+## Agent Details
+
+### Figma Parser Agent
+
+The Figma Parser Agent is responsible for:
+
+- Parsing Figma JSON files
+- Extracting design information
+- Creating a flattened node structure
+- Identifying components and styles
+
+### Design Analyzer Agent
+
+The Design Analyzer Agent is responsible for:
+
+- Detecting component patterns
+- Validating design styles for consistency
+- Extracting metadata about the design
+- Enriching component data with pattern information
+
+### EDS Mapper Agent
+
+The EDS Mapper Agent is responsible for:
+
+- Loading and parsing EDS component libraries
+- Mapping Figma components to EDS components
+- Calculating confidence scores for mappings
+- Managing property mappings between components
+
+### LLM Orchestrator Agent
+
+The LLM Orchestrator Agent is responsible for:
+
+- Generating code based on component mappings
+- Supporting multiple frontend frameworks
+- Creating layout code to combine components
+- Handling framework-specific code generation
+
+### Code Validator Agent
+
+The Code Validator Agent is responsible for:
+
+- Validating syntax of generated code
+- Checking adherence to style guidelines
+- Testing responsiveness across different screen sizes
+- Providing feedback for code improvements
+
+## Workflow Integration
+
+The system integrates these agents in a seamless workflow:
+
+1. Figma design is imported and parsed by the Figma Parser Agent
+2. Parsed design is analyzed by the Design Analyzer Agent
+3. EDS library is imported and components are mapped by the EDS Mapper Agent
+4. Code is generated by the LLM Orchestrator Agent based on the mappings
+5. Generated code is validated by the Code Validator Agent
+
+## Extending the System
+
+### Adding New Frameworks
+
+To add support for a new frontend framework:
+
+1. Add a new template in the LLM Orchestrator Agent
+2. Implement framework-specific code generation logic
+3. Update the Code Validator Agent to handle the new framework
+
+### Adding New Component Types
+
+To add support for new component types:
+
+1. Update the Design Analyzer Agent to detect the new pattern
+2. Add mapping logic in the EDS Mapper Agent
+3. Update code generation templates in the LLM Orchestrator Agent
+
+## Troubleshooting
+
+### Common Issues
+
+- **Figma Import Fails**: Ensure your Figma JSON file is valid and complete
+- **Component Mapping Issues**: Check that your EDS library format matches the expected schema
+- **Code Generation Errors**: Verify that all required properties are mapped correctly
+
+### Support
+
+For additional support, please contact the development team or open an issue in the repository.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
